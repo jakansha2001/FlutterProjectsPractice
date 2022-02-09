@@ -29,14 +29,66 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
   const DicePage({Key? key}) : super(key: key);
 
-  //var leftDiceNumber = 5;   //no changes will be reflected because build() is reloaded on Hot Reload
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
 
   @override
   Widget build(BuildContext context) {
-    var leftDiceNumber = 5;
+    leftDiceNumber = 2;
+    return Center(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: () {
+                  setState(() {
+                    leftDiceNumber = 3;
+                    //If we don't write setState() then the image will not be set on Press of the dice
+                  });
+                  // leftDiceNumber = 3;
+                  // print('Dice Number = $leftDiceNumber');
+                },
+                child: Image.asset('images/dice$leftDiceNumber.png'),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: () {},
+                child: const Image(
+                  image: AssetImage('images/dice2.png'),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/*class DicePage extends StatelessWidget {
+  DicePage({Key? key}) : super(key: key);
+
+  //var leftDiceNumber = 5;   //no changes will be reflected because build() is reloaded on Hot Reload
+  int leftDiceNumber = 5;
+  //if we write it inside build() then it will be instantiated again and again.
+
+  @override
+  Widget build(BuildContext context) {
+    //var leftDiceNumber = 5;
+    leftDiceNumber = 2;
     return Center(
       child: Row(
         children: <Widget>[
@@ -79,3 +131,4 @@ class DicePage extends StatelessWidget {
     );
   }
 }
+*/
