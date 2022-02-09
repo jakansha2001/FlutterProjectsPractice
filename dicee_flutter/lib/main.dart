@@ -32,8 +32,11 @@ class MyApp extends StatelessWidget {
 class DicePage extends StatelessWidget {
   const DicePage({Key? key}) : super(key: key);
 
+  //var leftDiceNumber = 5;   //no changes will be reflected because build() is reloaded on Hot Reload
+
   @override
   Widget build(BuildContext context) {
+    var leftDiceNumber = 5;
     return Center(
       child: Row(
         children: <Widget>[
@@ -47,7 +50,7 @@ class DicePage extends StatelessWidget {
                   // print(
                   //     'Left button is pressed!'); //prints on console (Run console)
                 },
-                child: Image.asset('images/dice1.png'),
+                child: Image.asset('images/dice$leftDiceNumber.png'),
               ),
             ),
           ), //Instead of writing the below code simply write this
