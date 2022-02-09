@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -38,10 +39,10 @@ class DicePage extends StatefulWidget {
 
 class _DicePageState extends State<DicePage> {
   int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
 
   @override
   Widget build(BuildContext context) {
-    leftDiceNumber = 2;
     return Center(
       child: Row(
         children: <Widget>[
@@ -51,8 +52,11 @@ class _DicePageState extends State<DicePage> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    leftDiceNumber = 3;
-                    //If we don't write setState() then the image will not be set on Press of the dice
+                    //leftDiceNumber = 3;
+                    //If we don't write setState() then the image will not be set on Press of the dice. Also wherever leftDiceNumber is written the value gets updated.
+                    leftDiceNumber = Random().nextInt(6) + 1;
+                    rightDiceNumber = Random().nextInt(6) + 1;
+                    // 0-5 but we don't need 0 so we can add 1 to this to make the range as 1-6
                   });
                   // leftDiceNumber = 3;
                   // print('Dice Number = $leftDiceNumber');
@@ -65,9 +69,17 @@ class _DicePageState extends State<DicePage> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
-                onPressed: () {},
-                child: const Image(
-                  image: AssetImage('images/dice2.png'),
+                onPressed: () {
+                  setState(() {
+                    //rightDiceNumber = 3;
+                    //If we don't write setState() then the image will not be set on Press of the dice
+                    rightDiceNumber = Random().nextInt(6) + 1;
+                    leftDiceNumber = Random().nextInt(6) + 1;
+                    // 0-5 but we don't need 0 so we can add 1 to this to make the range as 1-6
+                  });
+                },
+                child: Image(
+                  image: AssetImage('images/dice$rightDiceNumber.png'),
                 ),
               ),
             ),
