@@ -38,27 +38,36 @@ class DicePage extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Expanded(
-              //Expanded to fill the entire horizontal space because we are in a Row (try using Column: fills entire vertical space)
-              //flex: 2,    //puts the two images in a ratio of 2:1 on the screen in a Row (if we don't use this property then equal ratio => flex:1 for both)
-              child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Image.asset('images/dice1.png'),
-          ) //Instead of writing the below code simply write this
-              // Image(
-              //   image: AssetImage('images/dice1.png'),
-              //   //height: 200.0,    //hardcoded; if user puts his/her phone in landscape then this will be hardcoded.
-              //   //width: 200.0,
-              // ),
+            //Expanded to fill the entire horizontal space because we are in a Row (try using Column: fills entire vertical space)
+            //flex: 2,    //puts the two images in a ratio of 2:1 on the screen in a Row (if we don't use this property then equal ratio => flex:1 for both)
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: () {
+                  // print(
+                  //     'Left button is pressed!'); //prints on console (Run console)
+                },
+                child: Image.asset('images/dice1.png'),
               ),
-          const Expanded(
+            ),
+          ), //Instead of writing the below code simply write this
+          // Image(
+          //   image: AssetImage('images/dice1.png'),
+          //   //height: 200.0,    //hardcoded; if user puts his/her phone in landscape then this will be hardcoded.
+          //   //width: 200.0,
+          // ),
+          Expanded(
             //Expanded to fill the entire horizontal space because we are in a Row (try using Column: fills entire vertical space)
             //flex: 1,    //puts the two images in a ratio of 2:1 on the screen in a Row (if we don't use this property then equal ratio => flex:1 for both)
             child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Image(
-                image: AssetImage('images/dice2.png'),
-                //height: 200.0,    //hardcoded; if user puts his/her phone in landscape then this will be hardcoded.
-                //width: 200.0,
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: () {},
+                child: const Image(
+                  image: AssetImage('images/dice2.png'),
+                  //height: 200.0,    //hardcoded; if user puts his/her phone in landscape then this will be hardcoded.
+                  //width: 200.0,
+                ),
               ),
             ),
           ),
