@@ -10,6 +10,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.blue,
+          body: Center(
+            child: Text(
+              nouns.first,
+              style: const TextStyle(
+                color: Colors.yellow,
+                fontSize: 50.0,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
