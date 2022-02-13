@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,14 +13,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.blue,
           body: Center(
-            child: Text(
-              nouns.first,
-              style: const TextStyle(
-                color: Colors.yellow,
-                fontSize: 50.0,
-              ),
+            child: TextButton(
+              onPressed: () {
+                final player = AudioCache();
+                player.play('assets_note3.wav');
+              },
+              child: const Text('Click Me'),
             ),
           ),
         ),
