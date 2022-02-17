@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
                 child: const Text('A'),
                 onPressed: () {
                   final player = AudioCache();
-                  player.play('assets_note3.wav');
+                  player.play('assets_note1.wav');
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                 child: const Text('B'),
                 onPressed: () {
                   final player = AudioCache();
-                  player.play('assets_note3.wav');
+                  player.play('assets_note2.wav');
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.red,
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
                 child: const Text('D'),
                 onPressed: () {
                   final player = AudioCache();
-                  player.play('assets_note3.wav');
+                  player.play('assets_note4.wav');
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
@@ -63,18 +63,18 @@ class MyApp extends StatelessWidget {
                 child: const Text('E'),
                 onPressed: () {
                   final player = AudioCache();
-                  player.play('assets_note3.wav');
+                  player.play('assets_note5.wav');
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
-                  backgroundColor: Colors.blueGrey.shade600,
+                  backgroundColor: Colors.teal,
                 ),
               ),
               TextButton(
                 child: const Text('F'),
                 onPressed: () {
                   final player = AudioCache();
-                  player.play('assets_note3.wav');
+                  player.play('assets_note6.wav');
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
                 child: const Text('G'),
                 onPressed: () {
                   final player = AudioCache();
-                  player.play('assets_note3.wav');
+                  player.play('assets_note7.wav');
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.yellow,
