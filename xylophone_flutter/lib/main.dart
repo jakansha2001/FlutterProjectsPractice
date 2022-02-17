@@ -8,6 +8,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  void playSound(int soundNumber) {
+    final player = AudioCache();
+    player.play('assets_note$soundNumber.wav');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,8 +23,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 child: const Text('A'),
                 onPressed: () {
-                  final player = AudioCache();
-                  player.play('assets_note1.wav');
+                  playSound(1);
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
@@ -29,8 +33,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 child: const Text('B'),
                 onPressed: () {
-                  final player = AudioCache();
-                  player.play('assets_note2.wav');
+                  playSound(2);
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.red,
@@ -40,8 +43,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 child: const Text('C'),
                 onPressed: () {
-                  final player = AudioCache();
-                  player.play('assets_note3.wav');
+                  playSound(3);
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.red,
@@ -51,8 +53,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 child: const Text('D'),
                 onPressed: () {
-                  final player = AudioCache();
-                  player.play('assets_note4.wav');
+                  playSound(4);
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
@@ -62,8 +63,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 child: const Text('E'),
                 onPressed: () {
-                  final player = AudioCache();
-                  player.play('assets_note5.wav');
+                  playSound(5);
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
@@ -73,8 +73,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 child: const Text('F'),
                 onPressed: () {
-                  final player = AudioCache();
-                  player.play('assets_note6.wav');
+                  playSound(6);
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.amber,
@@ -84,8 +83,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 child: const Text('G'),
                 onPressed: () {
-                  final player = AudioCache();
-                  player.play('assets_note7.wav');
+                  playSound(7);
                 },
                 style: TextButton.styleFrom(
                   primary: Colors.yellow,
