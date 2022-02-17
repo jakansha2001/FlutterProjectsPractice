@@ -13,14 +13,62 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          body: Center(
-            child: TextButton(
-              onPressed: () {
-                final player = AudioCache();
-                player.play('assets_note3.wav');
-              },
-              child: const Text('Click Me'),
-            ),
+          body: Column(
+            children: [
+              TextButton(
+                child: const Text('Akku'),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('assets_note3.wav');
+                },
+                style: TextButton.styleFrom(
+                  primary: Colors.purple,
+                  backgroundColor: Colors.amber,
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('assets_note3.wav');
+                },
+                child: const Text('Click Me'),
+              ),
+              TextButton(
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('assets_note3.wav');
+                },
+                child: const Text('Click Me'),
+              ),
+              TextButton(
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('assets_note3.wav');
+                },
+                child: const Text('Click Me'),
+              ),
+              TextButton(
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('assets_note3.wav');
+                },
+                child: const Text('Click Me'),
+              ),
+              TextButton(
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('assets_note3.wav');
+                },
+                child: const Text('Click Me'),
+              ),
+              TextButton(
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('assets_note3.wav');
+                },
+                child: const Text('Click Me'),
+              ),
+            ],
           ),
         ),
       ),
