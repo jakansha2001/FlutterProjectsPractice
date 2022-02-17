@@ -16,57 +16,81 @@ class MyApp extends StatelessWidget {
           body: Column(
             children: [
               TextButton(
-                child: const Text('Akku'),
+                child: const Text('A'),
                 onPressed: () {
                   final player = AudioCache();
                   player.play('assets_note3.wav');
                 },
                 style: TextButton.styleFrom(
-                  primary: Colors.purple,
-                  backgroundColor: Colors.amber,
+                  primary: Colors.amber,
+                  backgroundColor: Colors.red,
                 ),
               ),
               TextButton(
+                child: const Text('B'),
                 onPressed: () {
                   final player = AudioCache();
                   player.play('assets_note3.wav');
                 },
-                child: const Text('Click Me'),
+                style: TextButton.styleFrom(
+                  primary: Colors.red,
+                  backgroundColor: Colors.orange,
+                ),
               ),
               TextButton(
+                child: const Text('C'),
                 onPressed: () {
                   final player = AudioCache();
                   player.play('assets_note3.wav');
                 },
-                child: const Text('Click Me'),
+                style: TextButton.styleFrom(
+                  primary: Colors.red,
+                  backgroundColor: Colors.yellow,
+                ),
               ),
               TextButton(
+                child: const Text('D'),
                 onPressed: () {
                   final player = AudioCache();
                   player.play('assets_note3.wav');
                 },
-                child: const Text('Click Me'),
+                style: TextButton.styleFrom(
+                  primary: Colors.amber,
+                  backgroundColor: Colors.green,
+                ),
               ),
               TextButton(
+                child: const Text('E'),
                 onPressed: () {
                   final player = AudioCache();
                   player.play('assets_note3.wav');
                 },
-                child: const Text('Click Me'),
+                style: TextButton.styleFrom(
+                  primary: Colors.amber,
+                  backgroundColor: Colors.blueGrey.shade600,
+                ),
               ),
               TextButton(
+                child: const Text('F'),
                 onPressed: () {
                   final player = AudioCache();
                   player.play('assets_note3.wav');
                 },
-                child: const Text('Click Me'),
+                style: TextButton.styleFrom(
+                  primary: Colors.amber,
+                  backgroundColor: Colors.lightBlue,
+                ),
               ),
               TextButton(
+                child: const Text('G'),
                 onPressed: () {
                   final player = AudioCache();
                   player.play('assets_note3.wav');
                 },
-                child: const Text('Click Me'),
+                style: TextButton.styleFrom(
+                  primary: Colors.yellow,
+                  backgroundColor: Colors.purple,
+                ),
               ),
             ],
           ),
