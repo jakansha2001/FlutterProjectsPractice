@@ -1,4 +1,8 @@
+//import 'package:state_persistence/authentication/bloc/authentication_bloc.dart';
+import 'package:state_persistence/home/screens/home.dart';
+import 'package:state_persistence/auth_service.dart';
 import 'package:flutter/material.dart';
+//import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);
@@ -10,6 +14,7 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +50,22 @@ class _CreateAccountState extends State<CreateAccount> {
               height: 30.0,
             ),
             ElevatedButton(
-              onPressed: () {
-                print(
-                    'Email: ${_emailController.text}, Password: ${_passwordController.text}');
+              onPressed: () async {
+                final message = await AuthService().registration(
+                  email: _emailController.text,
+                  password: _passwordController.text,
+                );
+                if (message!.contains('Success')) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const Home(
+                            email: '',
+                          )));
+                }
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                  ),
+                );
               },
               child: const Text('Create Account'),
             ),
