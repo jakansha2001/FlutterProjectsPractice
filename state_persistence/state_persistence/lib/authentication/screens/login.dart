@@ -1,25 +1,41 @@
-//import 'package:firebase_test/authentication/bloc/authentication_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:state_persistence/authentication/screens/create_account.dart';
 import 'package:state_persistence/auth_service.dart';
 import 'package:state_persistence/home/screens/home.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_bloc/flutter_bloc.dart';
 
 late SharedPreferences loginData;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
-  static Future<dynamic> init() async {
-    loginData = await SharedPreferences.getInstance();
-  }
-
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  Future<dynamic> init() async {
+    loginData = await SharedPreferences.getInstance();
+    final String? email = loginData.getString('email');
+    final String? password = loginData.getString('password');
+    AuthService().login(
+        email: _emailController.text.toString(),
+        password: _passwordController.text.toString());
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const Home(
+          email: '',
+        ),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    init();
+  }
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -59,7 +75,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             ElevatedButton(
               onPressed: () async {
-                await LoginScreen.init();
+                //AuthService().login(email: _emailController.text.toString(),password: _passwordController.text.toString());
+                loginData = await SharedPreferences.getInstance();
                 loginData.setString('email', _emailController.text.toString());
                 loginData.setString(
                     'password', _passwordController.text.toString());
@@ -67,15 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   email: _emailController.text,
                   password: _passwordController.text,
                 );
-                if (loginData != null) {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const Home(
-                        email: '',
-                      ),
-                    ),
-                  );
-                }
 
                 if (message!.contains('Success')) {
                   Navigator.of(context).pushReplacement(
