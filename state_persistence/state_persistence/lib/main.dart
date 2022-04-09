@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:auth_service/auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:state_persistence/authentication/screens/login.dart';
 
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: LoginScreen(),
     );
   }
