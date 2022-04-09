@@ -1,8 +1,6 @@
-//import 'package:state_persistence/authentication/bloc/authentication_bloc.dart';
 import 'package:state_persistence/home/screens/home.dart';
 import 'package:state_persistence/auth_service.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);
