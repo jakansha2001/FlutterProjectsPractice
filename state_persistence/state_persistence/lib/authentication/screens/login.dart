@@ -18,21 +18,23 @@ class _LoginScreenState extends State<LoginScreen> {
     loginData = await SharedPreferences.getInstance();
     final String? email = loginData.getString('email');
     final String? password = loginData.getString('password');
-    AuthService().login(
-        email: _emailController.text.toString(),
-        password: _passwordController.text.toString());
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const Home(
-          email: '',
+    if (email != null || (email?.isNotEmpty)!) {
+      AuthService()
+          .login(email: email.toString(), password: password.toString());
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const Home(
+            email: '',
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 
   @override
   void initState() {
     // TODO: implement initState
+    super.initState();
     init();
   }
 
