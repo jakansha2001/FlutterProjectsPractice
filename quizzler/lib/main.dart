@@ -40,6 +40,7 @@ class _QuizPageState extends State<QuizPage> {
     ),
   ];
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
