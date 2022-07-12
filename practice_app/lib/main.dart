@@ -74,3 +74,51 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+class MyApp1 extends StatefulWidget {
+  @override
+  State<MyApp1> createState() => _MyApp1State();
+}
+
+class _MyApp1State extends State<MyApp1> {
+  var isClicked = false;
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(title: 'Material App', home: App());
+  }
+}
+
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  var isClicked = false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Material App Bar'),
+      ),
+      body: Center(
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              isClicked = !isClicked;
+            });
+          },
+          child: AnimatedContainer(
+            height: isClicked ? 150 : 200,
+            width: isClicked ? 100 : 150,
+            color: isClicked ? Colors.amber : Colors.blueAccent,
+            duration: const Duration(seconds: 5),
+            child: const Text('Hello World'),
+          ),
+        ),
+      ),
+    );
+  }
+}
