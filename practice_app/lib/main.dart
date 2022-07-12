@@ -24,6 +24,13 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void resetQuiz() {
+    setState(() {
+      questionIndex = 0;
+      totalScore = 0;
+    });
+  }
+
   final questions = [
     {
       'questionText': 'What\'s your favorite color?',
@@ -69,6 +76,7 @@ class _MyAppState extends State<MyApp> {
               )
             : Result(
                 resultScore: totalScore,
+                resetQuiz: resetQuiz,
               ),
       ),
     );
