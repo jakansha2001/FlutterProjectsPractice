@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:practice_app/quiz.dart';
-import './result.dart';
+import 'package:practice_app/result.dart';
+
+import 'quiz.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,25 +14,43 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var questionIndex = 0;
+  var totalScore = 0;
 
-  void answerQuestion() {
+  void answerQuestion(int score) {
     setState(() {
       questionIndex = questionIndex + 1;
+      totalScore += score;
+      print('Total Score $totalScore');
     });
   }
 
-  final questions = const [
+  final questions = [
     {
       'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White'],
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1}
+      ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      'answers': [
+        {'text': 'Rabbit', 'score': 5},
+        {'text': 'Snake', 'score': 3},
+        {'text': 'Elephant', 'score': 2},
+        {'text': 'Lion', 'score': 3}
+      ],
     },
     {
       'questionText': 'Who\'s your favorite instructor?',
-      'answers': ['Max', 'Max', 'Max', 'Max'],
+      'answers': [
+        {'text': 'Max', 'score': 5},
+        {'text': 'Max', 'score': 3},
+        {'text': 'Max', 'score': 2},
+        {'text': 'Max', 'score': 3}
+      ],
     },
   ];
 
@@ -48,10 +67,10 @@ class _MyAppState extends State<MyApp> {
                 answerQuestion: answerQuestion,
                 questionIndex: questionIndex,
               )
-            : Result(),
+            : Result(
+                resultScore: totalScore,
+              ),
       ),
     );
   }
 }
-
-
