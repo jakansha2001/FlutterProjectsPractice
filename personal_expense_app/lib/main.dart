@@ -45,11 +45,43 @@ class MyApp extends StatelessWidget {
                   return Card(
                     child: Row(
                       children: [
-                        Text(tx.amount.toString()),
+                        Container(
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 10,
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 2, color: Colors.purple),
+                          ),
+                          child: Text(
+                            //tx.amount.toString(),
+                            '\$${tx.amount}',
+                            style: const TextStyle(
+                              color: Colors.purple,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(tx.title),
-                            Text(tx.date.toString()),
+                            Text(
+                              tx.title,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              tx.date.toString(),
+                              style: const TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ],
                         )
                       ],
